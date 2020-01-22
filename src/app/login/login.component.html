@@ -1,0 +1,19 @@
+<h2>Login</h2>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  UserName:<br />
+  <input type="text" formControlName="username" />
+  <br />
+  Password:<br />
+  <input type="password" formControlName="password" />
+  <br />
+  <input type="submit" value="login" [disabled]="!loginForm.valid" />
+  <img
+    *ngIf="_isAuthenticated && _isPublicUser"
+    src="https://cdn1.iconfinder.com/data/icons/user-pics/512/user_group-512.png"
+  />
+  <img
+    *ngIf="_isAuthenticated && !_isPublicUser"
+    src="https://cdn0.iconfinder.com/data/icons/user-worker-employee-business-avatars/100/26-1User_13-512.png"
+  />
+</form>

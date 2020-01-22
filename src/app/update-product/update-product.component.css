@@ -1,0 +1,22 @@
+form {
+  position: relative;
+  cursor: pointer;
+  background-color: #eee;
+  margin: 0.5em;
+  padding: 0.3em 0;
+  height: 8.6em;
+  border-radius: 4px;
+}
+
+label {
+  text-align: left;
+}
+.col-25 {
+  width: 25%;
+  margin-top: 10px;
+}
+
+.col-50 {
+  width: 50%;
+  margin-top: 6px;
+}

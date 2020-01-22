@@ -1,0 +1,21 @@
+<h2>Update Product</h2>
+
+<form [formGroup]="oppoSuitsForm" (ngSubmit)="onSubmit()">
+  <label>Product ID: </label>
+  <select formControlName="name">
+    <option disabled>Select Product ID</option>
+    <option *ngFor="let product of products_list">{{product.id}}</option>
+  </select>
+  <br />
+  <label>Product Name: </label>
+  <input type="text" name="productname" />
+  <br />
+  <label>Quantité:</label>
+  <input type="text" name="quantite" />
+  <br />
+  <label>Prix:</label>
+  <input type="text" name="quantite" />
+  <br />
+  <input type="submit" value="Update" />
+  <input type="submit" value="Delete" />
+</form>

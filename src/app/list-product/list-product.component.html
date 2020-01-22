@@ -1,0 +1,9 @@
+<div class="products">
+  <h2>List products</h2>
+  <li *ngFor="let product of list_products">
+    Product : {{product.name}}<br />
+    Quantité :{{product.qt}} <br />
+    Prix :{{product.price}} $ <br />
+    <img [src]="product.imageUrl" height="50" width="50" />
+  </li>
+</div>

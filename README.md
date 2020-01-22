@@ -1,2 +1,0 @@
-# AngularClientProductsCRUD
-Created with CodeSandbox
