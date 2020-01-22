@@ -12,3 +12,7 @@ img {
   height: 50px;
   width: 50px;
 }
+
+.alert-danger {
+  color: rgb(255, 94, 0);
+}

@@ -7,7 +7,6 @@
   Password:<br />
   <input type="password" formControlName="password" />
   <br />
-  <input type="submit" value="login" [disabled]="!loginForm.valid" />
   <img
     *ngIf="_isAuthenticated && _isPublicUser"
     src="https://cdn1.iconfinder.com/data/icons/user-pics/512/user_group-512.png"
@@ -16,4 +15,19 @@
     *ngIf="_isAuthenticated && !_isPublicUser"
     src="https://cdn0.iconfinder.com/data/icons/user-worker-employee-business-avatars/100/26-1User_13-512.png"
   />
+  <div
+    *ngIf="loginForm.get('username').invalid && (loginForm.get('username').dirty || loginForm.get('username').touched)"
+    class="alert-danger"
+  >
+    <div *ngIf="loginForm.get('username').errors.required">
+      UserName is required.
+    </div>
+    <div *ngIf="loginForm.get('username').errors.minlength">
+      UserName cannot be more than 30 characters long.
+    </div>
+    <div *ngIf="loginForm.get('username').errors.minlength">
+      UserName must be at least 2 characters long.
+    </div>
+  </div>
+  <input type="submit" value="login" [disabled]="!loginForm.valid" />
 </form>

@@ -1,6 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { USERS } from "./mock-users";
-import { FormControl, FormGroup } from "@angular/forms";
+import {
+  FormGroup,
+  Validators,
+  FormBuilder,
+  FormControl
+} from "@angular/forms";
 
 @Component({
   selector: "login",
@@ -11,21 +16,36 @@ export class LoginComponent implements OnInit {
   _listUsers = null;
   _isPublicUser = true;
   _isAuthenticated = false;
+  //loginForm: FormGroup;
 
   // Our form model
   //username = new FormControl("");
-
-  //use of FormGroup with multi-form-elements
-  loginForm = new FormGroup({
-    username: new FormControl(""),
-    password: new FormControl("")
-  });
+  constructor(private formBuilder: FormBuilder) {}
 
   // A lifecycle hook that is called after Angular has initialized all data-bound properties of a directive.
   //Define an ngOnInit() method to handle any additional initialization tasks.
 
+  loginForm = new FormGroup({
+    username: new FormControl("Enter your name", [
+      Validators.required,
+      Validators.minLength(2),
+      Validators.maxLength(30)
+    ]),
+    password: new FormControl("", Validators.required)
+  });
+
   ngOnInit() {
     this._listUsers = USERS;
+    /*
+    this.loginForm = this.formBuilder.group({
+      username: new FormControl("", Validators.required),
+      password: ["", Validators.required]
+    });*/
+  }
+
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.loginForm.controls;
   }
 
   // Update values of login element form
