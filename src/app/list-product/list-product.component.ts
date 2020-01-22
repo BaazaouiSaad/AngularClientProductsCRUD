@@ -8,5 +8,5 @@ import { PRODUCTS } from "./mock-products";
 })
 export class ListProductComponent {
   title = "ListProduct";
-  list_users = PRODUCTS;
+  list_products = PRODUCTS;
 }
