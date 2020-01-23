@@ -8,9 +8,26 @@
   <input type="text" formControlName="quantite" />
   <br />
   Prix:<br />
-  <input type="text" formControlName="prix" />
+  <input type="text" formControlName="price" /> $
   <br />
+  <!-- Image upload -->
+  <div>
+    <div class="form-group">
+      <input type="file" name="image" (change)="fileProgress($event)" />
+    </div>
+    <div *ngIf="fileUploadProgress">
+      Upload progress: {{ fileUploadProgress }}
+    </div>
+    <div class="image-preview mb-3" *ngIf="previewUrl">
+      <img [src]="previewUrl" height="300" />
+    </div>
 
+    <div class="mb-3" *ngIf="uploadedFilePath">
+      {{uploadedFilePath}}
+    </div>
+
+    <button (click)="onUpload()">Upload Image</button>
+  </div>
   <div
     *ngIf="addProductForm.get('productname').invalid && (addProductForm.get('productname').dirty || addProductForm.get('productname').touched)"
     class="alert-danger"
