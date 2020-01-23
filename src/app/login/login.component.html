@@ -19,15 +19,15 @@
     *ngIf="loginForm.get('username').invalid && (loginForm.get('username').dirty || loginForm.get('username').touched)"
     class="alert-danger"
   >
-    <div *ngIf="loginForm.get('username').errors.required">
+    <p class="small" *ngIf="loginForm.get('username').errors.required">
       UserName is required.
-    </div>
-    <div *ngIf="loginForm.get('username').errors.minlength">
+    </p>
+    <p class="small" *ngIf="loginForm.get('username').errors.minlength">
       UserName cannot be more than 30 characters long.
-    </div>
-    <div *ngIf="loginForm.get('username').errors.minlength">
+    </p>
+    <p class="small" *ngIf="loginForm.get('username').errors.minlength">
       UserName must be at least 2 characters long.
-    </div>
+    </p>
   </div>
   <input type="submit" value="login" [disabled]="!loginForm.valid" />
 </form>

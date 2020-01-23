@@ -7,3 +7,12 @@ form {
   height: 8.6em;
   border-radius: 4px;
 }
+
+.alert-danger {
+  color: rgb(255, 94, 0);
+}
+
+p.small {
+  line-height: 0.1;
+  font-size: 11px;
+}

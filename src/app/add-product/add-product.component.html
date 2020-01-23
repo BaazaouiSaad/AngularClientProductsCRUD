@@ -1,14 +1,44 @@
 <h2>Add Product</h2>
 
-<form action="">
+<form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
   Product Name:<br />
-  <input type="text" name="productname" />
+  <input type="text" formControlName="productname" />
   <br />
   Quantité:<br />
-  <input type="text" name="quantite" />
+  <input type="text" formControlName="quantite" />
   <br />
   Prix:<br />
-  <input type="text" name="quantite" />
+  <input type="text" formControlName="prix" />
   <br />
-  <input type="submit" value="Add" />
+
+  <div
+    *ngIf="addProductForm.get('productname').invalid && (addProductForm.get('productname').dirty || addProductForm.get('productname').touched)"
+    class="alert-danger"
+  >
+    <!-- Validation for quantite -->
+    <p class="small" *ngIf="addProductForm.get('productname').errors.required">
+      ProductName is required.
+    </p>
+    <p class="small" *ngIf="addProductForm.get('productname').errors.minlength">
+      ProductName cannot be more than 30 characters long.
+    </p>
+    <p class="small" *ngIf="addProductForm.get('productname').errors.minlength">
+      ProductName must be at least 2 characters long.
+    </p>
+  </div>
+
+  <div
+    *ngIf="addProductForm.get('quantite').invalid && (addProductForm.get('quantite').dirty || addProductForm.get('quantite').touched)"
+    class="alert-danger"
+  >
+    <!-- Validation for quantite -->
+    <p class="small" *ngIf="addProductForm.get('quantite').errors.required">
+      Quantite is required.
+    </p>
+    <p class="small" *ngIf="addProductForm.get('quantite').errors.max">
+      Quantite must not exeed 20 article.
+    </p>
+  </div>
+
+  <input input type="submit" value="add" [disabled]="!addProductForm.valid" />
 </form>
