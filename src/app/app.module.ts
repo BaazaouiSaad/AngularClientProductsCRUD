@@ -10,6 +10,7 @@ import { UpdateProductComponent } from "./update-product/update-product.componen
 import { AppHeaderComponent } from "./app-header/app-header.component";
 import { AppFooterComponent } from "./app-footer/app-footer.component";
 import { LoginComponent } from "./login/login.component";
+import { ValidationFormComponent } from "./validation-form/validation-form.component";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoginComponent } from "./login/login.component";
     UpdateProductComponent,
     AppHeaderComponent,
     AppFooterComponent,
-    LoginComponent
+    LoginComponent,
+    ValidationFormComponent
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [],

@@ -1,0 +1,28 @@
+<div
+  *ngIf="myForm.get('productname').invalid && (myForm.get('productname').dirty || myForm.get('productname').touched)"
+  class="alert-danger"
+>
+  <!-- Validation for quantite -->
+  <p class="small" *ngIf="myForm.get('productname').errors.required">
+    ProductName is required.
+  </p>
+  <p class="small" *ngIf="myForm.get('productname').errors.minlength">
+    ProductName cannot be more than 30 characters long.
+  </p>
+  <p class="small" *ngIf="myForm.get('productname').errors.minlength">
+    ProductName must be at least 2 characters long.
+  </p>
+</div>
+
+<div
+  *ngIf="myForm.get('quantite').invalid && (myForm.get('quantite').dirty || myForm.get('quantite').touched)"
+  class="alert-danger"
+>
+  <!-- Validation for quantite -->
+  <p class="small" *ngIf="myForm.get('quantite').errors.required">
+    Quantite is required.
+  </p>
+  <p class="small" *ngIf="myForm.get('quantite').errors.max">
+    Quantite must not exeed 20 article.
+  </p>
+</div>

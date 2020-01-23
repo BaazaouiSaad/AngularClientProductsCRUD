@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit {
     password: new FormControl("", Validators.required)
   });
 
+  myForm = this.loginForm;
+
   ngOnInit() {
     this._listUsers = USERS;
     /*
