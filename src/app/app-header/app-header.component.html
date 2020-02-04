@@ -5,10 +5,20 @@
 <nav>
   <ul>
     <li *ngFor="let menuItem of menuList">
-      <a href="#">{{menuItem.parent}}</a>
+      <a
+        [routerLink]="[menuItem.parent.toLowerCase()]"
+        routerLinkActive="active"
+      >
+        {{menuItem.parent}}
+      </a>
       <ul *ngIf="menuItem.childs != null" class="sous">
         <li *ngFor="let sousMenuItem of menuItem.childs">
-          <a href="#">{{sousMenuItem.item}}</a>
+          <a
+            [routerLink]="[sousMenuItem.item.toLowerCase()]"
+            routerLinkActive="active"
+          >
+            {{sousMenuItem.item}}
+          </a>
         </li>
       </ul>
     </li>

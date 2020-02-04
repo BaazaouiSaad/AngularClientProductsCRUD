@@ -1,0 +1,23 @@
+form {
+  position: relative;
+  cursor: pointer;
+  background-color: #eee;
+  margin: 0.5em;
+  padding: 0.3em 0;
+  height: 8.6em;
+  border-radius: 4px;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}
+
+.alert-danger {
+  color: rgb(255, 94, 0);
+}
+
+p.small {
+  line-height: 0.1;
+  font-size: 11px;
+}

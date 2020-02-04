@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { AppRoutingModule} from
 
 import { AppComponent } from "./app.component";
 import { ListProductComponent } from "./list-product/list-product.component";
@@ -11,7 +12,20 @@ import { UpdateProductComponent } from "./update-product/update-product.componen
 import { AppHeaderComponent } from "./app-header/app-header.component";
 import { AppFooterComponent } from "./app-footer/app-footer.component";
 import { LoginComponent } from "./login/login.component";
+import { HomeComponent } from "./home/home.component";
 import { ValidationFormComponent } from "./validation-form/validation-form.component";
+
+import { Routes, RouterModule } from "@angular/router";
+
+const routes: Routes = [
+  { path: "products", component: ListProductComponent },
+  { path: "add", component: AddProductComponent },
+  { path: "update", component: UpdateProductComponent },
+  { path: "delete", component: UpdateProductComponent },
+  { path: "login", component: LoginComponent },
+  { path: "home", component: HomeComponent },
+  { path: "", redirectTo: "/home", pathMatch: "full"}
+];
 
 @NgModule({
   declarations: [
@@ -22,9 +36,11 @@ import { ValidationFormComponent } from "./validation-form/validation-form.compo
     AppHeaderComponent,
     AppFooterComponent,
     LoginComponent,
-    ValidationFormComponent
+    ValidationFormComponent,
+    HomeComponent
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes)],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
