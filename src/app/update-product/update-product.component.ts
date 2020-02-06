@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { PRODUCTS } from "../list-product/mock-products";
 import { FormGroup, Validators, FormControl } from "@angular/forms";
+import { Router } from "@angular/router";
+import { Product } from "./product";
 
 @Component({
   selector: "app-update-product",
@@ -10,6 +12,9 @@ import { FormGroup, Validators, FormControl } from "@angular/forms";
 export class UpdateProductComponent {
   title = "UpdateProduct";
   products_list = PRODUCTS;
+  selectedProduct: Product;
+
+  constructor(private router: Router) {}
 
   updateProductForm = new FormGroup({
     productname: new FormControl("", [
@@ -22,4 +27,22 @@ export class UpdateProductComponent {
   });
 
   myForm = this.updateProductForm;
+
+  onSubmit(buttonType) {
+    if (buttonType === "Delete") {
+      this.router.navigate(["/home"]);
+    }
+    if (buttonType === "Update") {
+      this.router.navigate(["/products"]);
+    }
+  }
+
+  public onChange(event): void {
+    // event will give you full breif of action
+    var namer = PRODUCTS.find(x => x.id === event.target.value).name;
+
+    console.log(event.target.value);
+    console.log("Hello1");
+    console.log(namer);
+  }
 }

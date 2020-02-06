@@ -1,12 +1,12 @@
 export class Product {
-  id: number;
+  id: string;
   name: string;
   imageUrl: string;
   price: number;
   qt: number;
 
   constructor(
-    id: number,
+    id: string,
     name: string,
     imageUrl: string,
     qt: number,
@@ -17,5 +17,17 @@ export class Product {
     this.qt = qt;
     this.price = price;
     this.imageUrl = imageUrl;
+  }
+
+  getName(): string {
+    return this.name;
+  }
+
+  getPrice(): number {
+    return this.price;
+  }
+
+  getQt(): number {
+    return this.qt;
   }
 }

@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { PRODUCTS } from "../list-product/mock-products";
 import { Product } from "../list-product/product";
 import { FormGroup, Validators, FormControl } from "@angular/forms";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 // used for uploading files
 import { HttpClient, HttpEventType } from "@angular/common/http";
 
@@ -19,7 +20,7 @@ export class AddProductComponent {
   _fileUploadProgress: string = null;
   _uploadedFilePath: string = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   addProductForm = new FormGroup({
     productname: new FormControl("", [
@@ -42,6 +43,7 @@ export class AddProductComponent {
       this.addProductForm.value.price,
       this.addProductForm.value.imageUrl
     );
+    this.router.navigate(["/products"]);
   }
 
   // Methode to add a Product
